@@ -1,0 +1,137 @@
+/* Estilo Geral */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #F4F3F8;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    background: #1E3A5F;
+    color: white;
+    padding: 20px;
+    width: 200px;
+}
+
+.novo-chat {
+    background: white;
+    color: #1E3A5F;
+    font-weight: bold;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.historico {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+#historico-lista {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    color: white;
+}
+
+#historico-lista li {
+    margin: 5px 0;
+    font-size: 12px;
+    padding: 5px;
+    border-bottom: 1px solid white;
+}
+
+/* Área do Chat */
+.chat-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.chat-header {
+    font-size: 20px;
+    font-weight: bold;
+    color: #1E3A5F;
+    margin-bottom: 10px;
+}
+
+.chat-messages {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background: white;
+    padding: 10px;
+    overflow-y: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* Corrigido: cada mensagem ocupa sua linha */
+.mensagem {
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 10px;
+    max-width: 60%;
+    display: block;  /* Força cada mensagem em linha separada */
+    word-wrap: break-word;
+}
+
+.mensagem.esquerdo {
+    background: #E6E6E6;
+    align-self: flex-start;
+    text-align: left;
+}
+
+.mensagem.direito {
+    background: #D1E7DD;
+    align-self: flex-end;
+    text-align: right;
+}
+
+
+/* Botões Rápidos */
+.quick-buttons {
+    margin-bottom: 10px;
+}
+
+.quick-btn {
+    background: #1E3A5F;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    margin: 0 5px 5px 0;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Área de Entrada */
+.input-area {
+    display: flex;
+    margin-top: 10px;
+}
+
+.input-area input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+}
+
+.input-area button {
+    padding: 10px;
+    background: #1E3A5F;
+    color: white;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-weight: bold;
+}

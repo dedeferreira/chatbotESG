@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Chatbot ESG</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<div class="container">
+    <aside class="sidebar">
+        <form method="post" action="/enviar">
+            <input type="hidden" name="novo_chat" value="1">
+            <button class="novo-chat" type="submit">+ Novo Chat</button>
+        </form>
+        <p class="historico">Histórico de mensagem</p>
+        <ul id="historico-lista">
+            {% for titulo in historico %}
+                <li>{{ titulo }}</li>
+            {% endfor %}
+        </ul>
+    </aside>
+
+    <main class="chat-area">
+        <header class="chat-header">Chatbot ESG</header>
+        <section class="chat-messages" id="chat-messages">
+            {% if chat %}
+                {% for m in chat %}
+                    <div class="mensagem {{ m.lado }}">{{ m.texto }}</div>
+                {% endfor %}
+            {% endif %}
+        </section>
+        
+
+        <!-- Botões para escolher pilar -->
+        <div class="quick-buttons">
+            {% for pilar in pilares %}
+                <form method="post" action="/enviar" style="display:inline;">
+                    <input type="hidden" name="pilar" value="{{ pilar }}">
+                    <input type="hidden" name="pergunta_idx" value="-1">
+                    <button class="quick-btn" type="submit">{{ pilar }}</button>
+                </form>
+            {% endfor %}
+        </div>
+
+        <!-- Campo de entrada -->
+        <form method="post" action="/enviar" class="input-area">
+            <input type="text" name="pergunta_idx" placeholder="Digite o número da pergunta" required>
+            <input type="hidden" name="pilar" value="{{ pilar_selecionado }}">
+            <button type="submit">🔍</button>
+        </form>
+    </main>
+</div>
+</body>
+</html>
