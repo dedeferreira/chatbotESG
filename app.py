@@ -80,7 +80,7 @@ def enviar():
 
     # Processar pergunta digitada
     try:
-        pergunta_idx = int(pergunta_idx)
+        pergunta_idx = int(pergunta_idx) -1
         perguntas = pilares.get(pilar, [])
         if 0 <= pergunta_idx < len(perguntas):
             pergunta = perguntas[pergunta_idx]
