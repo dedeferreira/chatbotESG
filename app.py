@@ -71,7 +71,7 @@ def enviar():
     if pergunta_idx == '-1':
         # Apenas exibir perguntas do pilar
         perguntas = pilares.get(pilar, [])
-        chat = [{'texto': f"{pilar} - Escolha um número de 0 a 2:", 'lado': 'esquerdo'}]
+        chat = [{'texto': f"{pilar} - Escolha um número de 1 a 3:", 'lado': 'esquerdo'}]
         for i, pergunta in enumerate(perguntas):
             chat.append({'texto': f"{i}. {pergunta}", 'lado': 'esquerdo'})
         session['chat_atual'] = chat
@@ -82,7 +82,7 @@ def enviar():
     try:
         pergunta_idx = int(pergunta_idx)
         perguntas = pilares.get(pilar, [])
-        if 0 <= pergunta_idx < len(perguntas):
+        if 1 <= pergunta_idx < ( len(perguntas) +1):
             pergunta = perguntas[pergunta_idx]
             resposta = respostas.get(pergunta, "Desculpe, não encontrei resposta para isso.")
             chat_atual = session.get('chat_atual', [])
