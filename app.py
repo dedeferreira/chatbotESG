@@ -31,18 +31,18 @@ pilares = {
 }
 
 respostas = {
-    pilares["Uso da Plataforma"][0]: "Você pode se cadastrar clicando em 'Criar conta' na página inicial.",
-    pilares["Uso da Plataforma"][1]: "Clique em 'Esqueci minha senha' e siga os passos.",
-    pilares["Uso da Plataforma"][2]: "As métricas ficam disponíveis no seu painel pessoal.",
-    pilares["Conceito ESG"][0]: "ESG é uma sigla para práticas Ambientais, Sociais e de Governança.",
-    pilares["Conceito ESG"][1]: "Porque demonstra responsabilidade e sustentabilidade.",
-    pilares["Conceito ESG"][2]: "Sim! A plataforma oferece diversos conteúdos educativos.",
-    pilares["Suporte Técnico"][0]: "Entre em contato com o suporte ou tente recarregar a página.",
-    pilares["Suporte Técnico"][1]: "Verifique sua conexão e tente novamente em instantes.",
-    pilares["Suporte Técnico"][2]: "Você pode entrar em contato através do chat ou e-mail de suporte.",
-    pilares["Ferramentas e Funcionalidades"][0]: "Você encontra a calculadora no menu principal.",
-    pilares["Ferramentas e Funcionalidades"][1]: "O painel de impacto mostra seu desempenho em ESG.",
-    pilares["Ferramentas e Funcionalidades"][2]: "A integração pode ser feita via API na aba configurações."
+    pilares["Uso da Plataforma"][1]: "Você pode se cadastrar clicando em 'Criar conta' na página inicial.",
+    pilares["Uso da Plataforma"][2]: "Clique em 'Esqueci minha senha' e siga os passos.",
+    pilares["Uso da Plataforma"][3]: "As métricas ficam disponíveis no seu painel pessoal.",
+    pilares["Conceito ESG"][1]: "ESG é uma sigla para práticas Ambientais, Sociais e de Governança.",
+    pilares["Conceito ESG"][2]: "Porque demonstra responsabilidade e sustentabilidade.",
+    pilares["Conceito ESG"][3]: "Sim! A plataforma oferece diversos conteúdos educativos.",
+    pilares["Suporte Técnico"][1]: "Entre em contato com o suporte ou tente recarregar a página.",
+    pilares["Suporte Técnico"][2]: "Verifique sua conexão e tente novamente em instantes.",
+    pilares["Suporte Técnico"][3]: "Você pode entrar em contato através do chat ou e-mail de suporte.",
+    pilares["Ferramentas e Funcionalidades"][1]: "Você encontra a calculadora no menu principal.",
+    pilares["Ferramentas e Funcionalidades"][2]: "O painel de impacto mostra seu desempenho em ESG.",
+    pilares["Ferramentas e Funcionalidades"][3]: "A integração pode ser feita via API na aba configurações."
 }
 
 @app.route('/')
