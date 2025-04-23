@@ -31,18 +31,18 @@ pilares = {
 }
 
 respostas = {
-    pilares["Uso da Plataforma"][1]: "Você pode se cadastrar clicando em 'Criar conta' na página inicial.",
-    pilares["Uso da Plataforma"][2]: "Clique em 'Esqueci minha senha' e siga os passos.",
-    pilares["Uso da Plataforma"][3]: "As métricas ficam disponíveis no seu painel pessoal.",
-    pilares["Conceito ESG"][1]: "ESG é uma sigla para práticas Ambientais, Sociais e de Governança.",
-    pilares["Conceito ESG"][2]: "Porque demonstra responsabilidade e sustentabilidade.",
-    pilares["Conceito ESG"][3]: "Sim! A plataforma oferece diversos conteúdos educativos.",
-    pilares["Suporte Técnico"][1]: "Entre em contato com o suporte ou tente recarregar a página.",
-    pilares["Suporte Técnico"][2]: "Verifique sua conexão e tente novamente em instantes.",
-    pilares["Suporte Técnico"][3]: "Você pode entrar em contato através do chat ou e-mail de suporte.",
-    pilares["Ferramentas e Funcionalidades"][1]: "Você encontra a calculadora no menu principal.",
-    pilares["Ferramentas e Funcionalidades"][2]: "O painel de impacto mostra seu desempenho em ESG.",
-    pilares["Ferramentas e Funcionalidades"][3]: "A integração pode ser feita via API na aba configurações."
+    pilares["Uso da Plataforma"][0]: "Você pode se cadastrar clicando em 'Criar conta' na página inicial.",
+    pilares["Uso da Plataforma"][1]: "Clique em 'Esqueci minha senha' e siga os passos.",
+    pilares["Uso da Plataforma"][2]: "As métricas ficam disponíveis no seu painel pessoal.",
+    pilares["Conceito ESG"][0]: "ESG é uma sigla para práticas Ambientais, Sociais e de Governança.",
+    pilares["Conceito ESG"][1]: "Porque demonstra responsabilidade e sustentabilidade.",
+    pilares["Conceito ESG"][2]: "Sim! A plataforma oferece diversos conteúdos educativos.",
+    pilares["Suporte Técnico"][0]: "Entre em contato com o suporte ou tente recarregar a página.",
+    pilares["Suporte Técnico"][1]: "Verifique sua conexão e tente novamente em instantes.",
+    pilares["Suporte Técnico"][2]: "Você pode entrar em contato através do chat ou e-mail de suporte.",
+    pilares["Ferramentas e Funcionalidades"][0]: "Você encontra a calculadora no menu principal.",
+    pilares["Ferramentas e Funcionalidades"][1]: "O painel de impacto mostra seu desempenho em ESG.",
+    pilares["Ferramentas e Funcionalidades"][2]: "A integração pode ser feita via API na aba configurações."
 }
 
 @app.route('/')
@@ -73,7 +73,7 @@ def enviar():
         perguntas = pilares.get(pilar, [])
         chat = [{'texto': f"{pilar} - Escolha um número de 1 a 3:", 'lado': 'esquerdo'}]
         for i, pergunta in enumerate(perguntas):
-            chat.append({'texto': f"{i}. {pergunta}", 'lado': 'esquerdo'})
+            chat.append({'texto': f"{i+1}. {pergunta}", 'lado': 'esquerdo'})
         session['chat_atual'] = chat
         session.modified = True
         return render_template('index.html', pilares=list(pilares.keys()), historico=session['historico'], chat=chat, pilar_selecionado=pilar)
@@ -82,7 +82,7 @@ def enviar():
     try:
         pergunta_idx = int(pergunta_idx)
         perguntas = pilares.get(pilar, [])
-        if 1 <= pergunta_idx < ( len(perguntas) +1):
+        if 0 <= pergunta_idx < len(perguntas):
             pergunta = perguntas[pergunta_idx]
             resposta = respostas.get(pergunta, "Desculpe, não encontrei resposta para isso.")
             chat_atual = session.get('chat_atual', [])
