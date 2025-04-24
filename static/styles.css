@@ -165,13 +165,14 @@ body {
         display: none;
     }
     .chat-messages{
-        margin-bottom: 200px;
+        margin-bottom: 20px;
     }
     .quick-btn{
-        width: 40%;
+        width: 48%;
         height: 80px;
         font-size: 26px;
         border-radius: 40px;
+        margin-left: 10px;
     }
     .input-area input[type="text"]{
         padding: 35px;
@@ -190,6 +191,11 @@ body {
     .chat-header{
         font-size: 40px;
         margin-top: 20px;
+    }
+    .elegante-texto{
+        text-align: end;
+        font-size: 30px;
+        margin-right: 20px;
     }
 
 } 
