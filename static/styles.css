@@ -145,6 +145,12 @@ body {
     font-weight: bold;
     margin-left: -35px;
 }
+.elegante-texto{
+    margin: 10px 0; 
+    color: #1E3A5F; 
+    font-weight: bold; 
+    font-size: 16px;
+}
 
 @media (max-width: 1028px) {
     .sidebar{
