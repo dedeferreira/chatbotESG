@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <title>Chatbot ESG</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
-    
-    
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
 </head>
 <body>
 <div class="container">
+    <!-- Sidebar -->
     <aside class="sidebar">
         <form method="post" action="/enviar">
             <input type="hidden" name="novo_chat" value="1">
@@ -23,8 +22,11 @@
         </ul>
     </aside>
 
+    <!-- Área principal -->
     <main class="chat-area">
         <header class="chat-header">Chatbot ESG</header>
+
+        <!-- Área de mensagens -->
         <section class="chat-messages" id="chat-messages">
             {% if chat %}
                 {% for m in chat %}
@@ -32,9 +34,13 @@
                 {% endfor %}
             {% endif %}
         </section>
-        
 
-        <!-- Botões para escolher pilar -->
+        <!-- Texto elegante acima dos botões -->
+        <div style="margin: 10px 0; color: #1E3A5F; font-weight: bold; font-size: 16px;">
+            Selecione uma categoria
+        </div>
+
+        <!-- Botões das categorias -->
         <div class="quick-buttons">
             {% for pilar in pilares %}
                 <form method="post" action="/enviar" style="display:inline;">
@@ -45,12 +51,21 @@
             {% endfor %}
         </div>
 
-        <!-- Campo de entrada -->
-        <form method="post" action="/enviar" class="input-area">
-            <input type="text" name="pergunta_idx" placeholder="Digite o número da pergunta" required>
-            <input type="hidden" name="pilar" value="{{ pilar_selecionado }}">
-            <button type="submit">🔍</button>
-        </form>
+        <!-- Input só aparece após escolher uma categoria -->
+        {% if pilar_selecionado %}
+            <form method="post" action="/enviar" class="input-area">
+                <input type="text" name="pergunta_idx" placeholder="Digite o número da pergunta" required>
+                <input type="hidden" name="pilar" value="{{ pilar_selecionado }}">
+                <button type="submit">🔍</button>
+            </form>
+        {% endif %}
+        
+        {% if erro %}
+            <div style="margin: 10px 0; color: red; font-weight: bold;">
+                {{ erro }}
+            </div>
+        {% endif %}
+
     </main>
 </div>
 </body>
